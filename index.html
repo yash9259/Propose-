@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Message</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Start: Defining variables */
+        :root {
+            --all-animations-duration: 1.5s;
+            --bgColor: red;
+            --color: black;
+            --defaultAnimationState: running;
+        }
+
+        /* End: Defining variables */
+
+        body {
+            animation: ChangeBGcolor var(--all-animations-duration) infinite alternate-reverse;
+            overflow: hidden;
+            animation-play-state: var(--defaultAnimationState);
+        }
+
+        .main-quote {
+            font-family: 'Dosis', sans-serif;
+            text-align: center;
+            animation: h1Change var(--all-animations-duration) infinite alternate-reverse;
+            animation-play-state: var(--defaultAnimationState);
+            margin-top: 150px;
+        }
+
+        .heart {
+            position: relative;
+            width: 100px;
+            height: 90px;
+            margin: 40px auto;
+            animation: pulse var(--all-animations-duration) infinite alternate-reverse;
+            animation-play-state: var(--defaultAnimationState);
+        }
+
+        .heart:before,
+        .heart:after {
+            position: absolute;
+            content: "";
+            left: 50px;
+            top: 0;
+            width: 50px;
+            height: 80px;
+            background: #ff0000;
+            border-radius: 50px 50px 0 0;
+            -webkit-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            -webkit-transform-origin: 0 100%;
+            -ms-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+            animation: HeartColor var(--all-animations-duration) infinite alternate-reverse;
+            animation-play-state: var(--defaultAnimationState);
+
+        }
+
+        .heart:after {
+            left: 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+            -webkit-transform-origin: 100% 100%;
+            -ms-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+        }
+
+        .heart span {
+            position: relative;
+            top: 15px;
+            left: 25px;
+            z-index: 1;
+            animation: ChangeColor var(--all-animations-duration) infinite alternate-reverse;
+            animation-play-state: var(--defaultAnimationState);
+            font-family: 'Lovers Quarrel', cursive;
+            font-weight: bold;
+            font-size: 35px;
+        }
+
+        .toggle-state {
+            padding: 10px 20px;
+            margin: auto;
+            display: block;
+            border-radius: 5px;
+            border: 0;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+
+        .heart-image-container {
+            background-color: green;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Start: Animation pulse to scale the heart */
+        @-webkit-keyframes pulse {
+            from {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            to {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5)
+            }
+        }
+
+        @keyframes pulse {
+            from {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+
+            to {
+                -webkit-transform: scale(1.5);
+                transform: scale(1.5)
+            }
+        }
+
+        /* End: Animation pulse to scale the heart */
+
+        /* Start: Changing body background to be as opposite as the color */
+        @-webkit-keyframes ChangeBGcolor {
+            from {
+                background-color: var(--color)
+            }
+
+            to {
+                background-color: var(--bgColor)
+            }
+        }
+
+        @keyframes ChangeBGcolor {
+            from {
+                background-color: var(--color)
+            }
+
+            to {
+                background-color: var(--bgColor)
+            }
+        }
+
+        /* End: Changing body background to be as opposite as the color */
+
+        /* Start: Changing header color to be as opposite as the background */
+        @-webkit-keyframes Change {
+            from {
+                color: var(--bgColor)
+            }
+
+            to {
+                color: var(--color)
+            }
+        }
+
+        @keyframes h1Change {
+            from {
+                color: var(--bgColor)
+            }
+
+            to {
+                color: var(--color)
+            }
+        }
+
+        /* End: Changing header color to be as opposite as the background */
+
+        /* Start: Toggling heart background color(red, black) */
+        @-webkit-keyframes HeartColor {
+            from {
+                background-color: var(--bgColor)
+            }
+
+            to {
+                background-color: var(--color)
+            }
+        }
+
+        @keyframes HeartColor {
+            from {
+                background-color: var(--bgColor)
+            }
+
+            to {
+                background-color: var(--color)
+            }
+        }
+
+        /* Start: Toggling heart background color(red, black) */
+
+        /* Start: Changing span color to be as opposite as the background */
+        @-webkit-keyframes ChangeColor {
+            from {
+                color: var(--color)
+            }
+
+            to {
+                color: var(--bgColor)
+            }
+        }
+
+        @keyframes ChangeColor {
+            from {
+                color: var(--color)
+            }
+
+            to {
+                color: var(--bgColor)
+            }
+        }
+
+        /* End: Changing span color to be as opposite as the background */
+
+        /* All Thanks to -Serhii @sakals for his appreciated help */
+        console.clear();
+    </style>
+</head>
+
+<body>
+
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="heart" id="heartBorder"><span>&hearts;</span></div>
+                    <div class="heart-image-container">
+                        <img src="/images/IMG-20231003-WA0002.jpg" style="height: 300px;" alt="Heart Image" class="heart-image img-fluid">
+                        &nbsp;&nbsp;&nbsp;<img src="/images/IMG_20231119_145037_309.jpg" style="height: 300px;" alt="Heart Image" class="heart-image img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="heart-image-container">
+                        <p>Dear Drashti❤️,
+    
+                            I just wanted to take a moment to tell you how much you mean to me. Your love has brought so much joy and warmth into my life, and I feel incredibly lucky to have you by my side.
+    
+                            Your smile brightens my darkest days, and your laughter is the sweetest melody. I appreciate the little moments we share and the way you
+                            <h1 class="center">I LOVE YOU FOREVER</h1>
+                        </p>
+                        
+                    </div>
+                </div>
+              
+            </div>
+          </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Include mo.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mo-js@0.288.1/build/mo.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Create heart shape dynamically
+            var heartBorder = document.getElementById('heartBorder');
+            createHeartShape(heartBorder);
+
+            // Define animation for the heart shape
+            var heartAnimation = new mojs.Tween({
+                repeat: 1,
+                duration: 2000,
+                onUpdate: function (progress) {
+                    heartBorder.style.transform = 'scale(' + progress + ')';
+                }
+            });
+
+            // Run the animation
+            heartAnimation.play();
+        });
+
+        function createHeartShape(container) {
+            var heart = document.createElement('div');
+            heart.className = 'heart-border-shape';
+            container.appendChild(heart);
+        }
+    </script>
+</body>
+
+</html>
